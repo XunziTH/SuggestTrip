@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Standard secure defaults for development environment
+    match /attractions/{id} {
+      allow read, write: if true;
+    }
+    match /restaurants/{id} {
+      allow read, write: if true;
+    }
+    match /hotels/{id} {
+      allow read, write: if true;
+    }
+    match /promotions/{id} {
+      allow read, write: if true;
+    }
+    match /swipe_items/{id} {
+      allow read, write: if true;
+    }
+    match /vouchers/{id} {
+      allow read, write: if true;
+    }
+    match /transactions/{id} {
+      allow read, write: if true;
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "entities": {
+    "Attraction": {
+      "title": "Attraction",
+      "description": "An attraction point of interest in Phetchaburi",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier" },
+        "name": { "type": "string", "description": "Name of the attraction" },
+        "category": { "type": "string", "description": "Category: culture, nature, beach, etc." },
+        "image": { "type": "string", "description": "URL of the representative photo" },
+        "description": { "type": "string", "description": "Paragraph description" },
+        "tag": { "type": "string", "description": "Style tags separated by slash" },
+        "rating": { "type": "number", "description": "Average rating from 0.0 to 5.0" },
+        "location": { "type": "string", "description": "District or sub-location in Phetchaburi" }
+      },
+      "required": ["id", "name", "category", "image", "description", "tag", "rating", "location"]
+    },
+    "Restaurant": {
+      "title": "Restaurant",
+      "description": "A restaurant or cafe partner",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "image": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "string" },
+        "rating": { "type": "number" },
+        "tag": { "type": "string" },
+        "location": { "type": "string" }
+      },
+      "required": ["id", "name", "category", "image", "description", "price", "rating", "tag", "location"]
+    },
+    "Hotel": {
+      "title": "Hotel",
+      "description": "A hotel or resort partner",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "image": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "string" },
+        "rating": { "type": "number" },
+        "tag": { "type": "string" },
+        "location": { "type": "string" }
+      },
+      "required": ["id", "name", "category", "image", "description", "price", "rating", "tag", "location"]
+    },
+    "Promotion": {
+      "title": "Promotion",
+      "description": "Privileges and vouchers created by merchants",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "providerId": { "type": "string" },
+        "providerType": { "type": "string" },
+        "providerName": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "code": { "type": "string" },
+        "pointsRequired": { "type": "number" },
+        "discount": { "type": "string" }
+      },
+      "required": ["id", "providerId", "providerType", "providerName", "title", "description", "code", "pointsRequired", "discount"]
+    },
+    "SwipeItem": {
+      "title": "SwipeItem",
+      "description": "An item in the Tinder-style swipe pool",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "tag": { "type": "string" },
+        "image": { "type": "string" },
+        "description": { "type": "string" },
+        "matchRate": { "type": "number" },
+        "typeText": { "type": "string" },
+        "behaviorLog": { "type": "string" }
+      },
+      "required": ["id", "name", "category", "tag", "image", "description", "matchRate", "typeText", "behaviorLog"]
+    },
+    "UserVoucher": {
+      "title": "UserVoucher",
+      "description": "A voucher redeemed by the user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "code": { "type": "string" },
+        "providerName": { "type": "string" },
+        "used": { "type": "boolean" },
+        "userId": { "type": "string" }
+      },
+      "required": ["id", "title", "code", "providerName", "used", "userId"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "A record of an app-based discount voucher redemption or usage transaction",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "providerId": { "type": "string" },
+        "providerName": { "type": "string" },
+        "user": { "type": "string" },
+        "discount": { "type": "string" },
+        "date": { "type": "string" },
+        "profit": { "type": "number" }
+      },
+      "required": ["id", "type", "providerId", "providerName", "user", "discount", "date", "profit"]
+    }
+  },
+  "firestore": {
+    "attractions/{id}": {
+      "schema": "Attraction",
+      "description": "Phetchaburi points of interest"
+    },
+    "restaurants/{id}": {
+      "schema": "Restaurant",
+      "description": "Phetchaburi restaurant partners"
+    },
+    "hotels/{id}": {
+      "schema": "Hotel",
+      "description": "Phetchaburi hotel partners"
+    },
+    "promotions/{id}": {
+      "schema": "Promotion",
+      "description": "Active promotional campaign privileges"
+    },
+    "swipe_items/{id}": {
+      "schema": "SwipeItem",
+      "description": "Interactive Tinder deck selection pool"
+    },
+    "vouchers/{id}": {
+      "schema": "UserVoucher",
+      "description": "User specific redeemed wallet coupons"
+    },
+    "transactions/{id}": {
+      "schema": "Transaction",
+      "description": "Logged platform usages and business checks"
+    }
+  }
+}

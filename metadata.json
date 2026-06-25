@@ -1,0 +1,8 @@
+{
+  "name": "Phetchaburi Go!",
+  "description": "An intelligent travel application for Phetchaburi with Tinder-style trip matching, personalized recommendations, and a business decision support dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
